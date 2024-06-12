@@ -1,11 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// App.js
+import React from 'react';
+import { StyleSheet, View, Dimensions } from 'react-native';
+import Image360Viewer from 'image360viewer';
 
 export default function App() {
+  const images = [
+    'https://picsum.photos/id/237/200/300',
+    'https://picsum.photos/seed/picsum/200/300',
+    'https://picsum.photos/200/300?grayscale',
+    'https://picsum.photos/200/300/?blur',
+    'https://picsum.photos/id/870/200/300?grayscale&blur=2'
+  ];
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Image360Viewer
+        src={images}
+        width={Dimensions.get('window').width}
+        height={Dimensions.get('window').height}
+      />
     </View>
   );
 }
@@ -13,8 +26,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
   },
 });
